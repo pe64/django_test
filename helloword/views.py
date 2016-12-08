@@ -16,5 +16,5 @@ def index(request):
     context = {}
     context['title'] = 'index'
     context['context'] = 'hello word'
-    user_list = userinfo.objects.all();
+    user_list = userinfo.objects.all()
     return render(request, 'index.html',{'user_list':user_list})
