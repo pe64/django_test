@@ -122,5 +122,17 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/
+STATIC_ROOT = os.path.join(os.path.dirname(__file__), '../static')
+STATIC_URL = '/static-file/'
 
-STATIC_URL = '/static/'
+# URL prefix for static files.
+# Example: "http://media.lawrence.com/static/"
+STATICFILES_DIRS = (
+    ('static/css',os.path.join(STATIC_ROOT,'css').replace('\\','/') ),
+    ('static/js',os.path.join(STATIC_ROOT,'js').replace('\\','/') ),
+    ('static/images',os.path.join(STATIC_ROOT,'images').replace('\\','/') ),
+    ('static/upload', os.path.join(STATIC_ROOT, 'upload').replace('\\', '/')),
+)
+# add property : ADMIN_MEDIA_ROOT BY slider
+# ADMIN_MEDIA_ROOT = '/static/admin/'
+# Additional locations of static files

@@ -16,9 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from helloword import views
+from untitled import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^helloword/', views.hello),
     url(r'^$', views.index),
-]
+    ] #+ static(settings.STATIC_ROOT, document_root=settings.STATIC_ROOT)
