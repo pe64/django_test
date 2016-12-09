@@ -38,13 +38,11 @@ def index(request):
 
     if request.method == 'POST':
         uf = UserForm(request.POST)
-
         if uf.is_valid():
-            print(uf.cleaned_data['username'])
-            print(uf.cleaned_data['password'])
-            request.session['username'] = uf.cleaned_data['username']
-            request.session['password'] = uf.cleaned_data['password']
+            if 'login' in request.POST:
+                request.session['username'] = uf.cleaned_data['username']
+                request.session['password'] = uf.cleaned_data['password']
             #return render_to_response('index.html', RequestContext(request, {'username': uf.cleaned_data['username'], 'password': uf.cleaned_data['password']}))
-            return HttpResponseRedirect('/helloword/')
+                return HttpResponseRedirect('/helloword/')
             #return render(request, 'index.html',{'user_list':user_list})
     return render(request, 'login.html')
