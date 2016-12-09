@@ -22,7 +22,7 @@ class Company(models.Model):
 class Product(models.Model):
     product_name = models.CharField(max_length=30)
     #price = models.FloatField()
-    stock = models.IntegerField(max_length=5)
+    stock = models.IntegerField()
     company = models.ForeignKey(Company)
 
 class userinfo(models.Model):
@@ -33,6 +33,6 @@ class userinfo(models.Model):
 
     user_type = models.IntegerField(choices=USER_TYPE_LIST, default=1)
     name = models.CharField(max_length=30)
-    email = models.EmailField()
-    memo = models.TextField()
+    email = models.EmailField(max_length=30)
+    memo = models.TextField(max_length=300)
     img = models.ImageField(null=True, blank=True, upload_to="upload")

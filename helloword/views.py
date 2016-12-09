@@ -28,9 +28,7 @@ class UserForm(forms.Form):
 
 
 def hello(request):
-    context = {}
-    context['username'] = 'Hello World!'
-    context['password'] = "hello word!"
+
     return render(request, 'index.html', {'username':request.session['username'],'password':request.session['password']})
 
 def index(request):
