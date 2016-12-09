@@ -31,7 +31,6 @@ class userinfo(models.Model):
         (2, 'admin'),
     )
 
-    
     user_type = models.IntegerField(choices=USER_TYPE_LIST, default=1)
     name = models.CharField(max_length=30)
     email = models.EmailField()
